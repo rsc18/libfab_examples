@@ -1,9 +1,12 @@
 
 // line 1 - 54 of tutorial
+#define _POSIX_C_SOURCE 200112L
+#include <arpa/inet.h>
+#include <netinet/in.h>
+#include <sys/socket.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <getopt.h>
-#include <netinet/in.h>
 #include <rdma/fabric.h>
 #include <rdma/fi_domain.h>
 #include <rdma/fi_endpoint.h>
