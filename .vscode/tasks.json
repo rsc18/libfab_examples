@@ -1,0 +1,28 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "build-cxi",
+      "type": "shell",
+      "command": "icx",
+      "args": [
+        "-g", "-O0",
+        "-I/opt/cray/libfabric/1.22.0/include",
+        "-L/opt/cray/libfabric/1.22.0/lib64",
+        "src/example_cxi_rdm.c",
+        "-o", "bin/example_cxi_rdm",
+        "-lfabric"
+      ],
+      "group": { "kind": "build", "isDefault": true }
+    },
+    {
+      "label": "build-mpi",
+      "type": "shell",
+      "command": "mpicc",
+      "args": [
+        "-g", "-O0", "src/mpi_alltoall_compare.c",
+        "-o", "bin/mpi_alltoall_compare"
+      ]
+    }
+  ]
+}

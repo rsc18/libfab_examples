@@ -1,0 +1,36 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+      {
+        "name": "Debug CXI program",
+        "type": "cppdbg",
+        "request": "launch",
+        "program": "${workspaceFolder}/bin/example_cxi_rdm",
+        "args": [],
+        "stopAtEntry": false,
+        "cwd": "${workspaceFolder}",
+        "MIMode": "gdb",
+        "miDebuggerPath": "/opt/aurora/24.347.0/spack/unified/0.9.2/install/linux-sles15-x86_64/gcc-13.3.0/gdb-15.2-l2hfjnb/bin/gdb",
+        "preLaunchTask": "build-cxi",
+        "setupCommands": [
+          { "description": "Enable pretty-printing", "text": "-enable-pretty-printing" }
+        ]
+      },
+      {
+        "name": "Debug MPI (2 ranks)",
+        "type": "cppdbg",
+        "request": "launch",
+        "program": "/opt/cray/pals/1.4/bin/mpiexec",
+        "args": [
+          "-n", "2",
+          "${workspaceFolder}/bin/example_cxi_pingpong"
+        ],
+        "MIMode": "gdb",
+        "miDebuggerPath": "/opt/aurora/24.347.0/spack/unified/0.9.2/install/linux-sles15-x86_64/gcc-13.3.0/gdb-15.2-l2hfjnb/bin/gdb",
+        "cwd": "${workspaceFolder}",
+        "stopAtEntry": false,
+        "environment": []
+      }
+    ]
+  }
+  
